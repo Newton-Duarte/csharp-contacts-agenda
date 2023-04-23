@@ -51,7 +51,23 @@ namespace ContactsAgenda
         System.Console.WriteLine("Contact not found.");
       }
 
-      Menu.Show();
+      ShowMenu();
+    }
+
+    static void SearchContact()
+    {
+      Menu.SearchContactMenu();
+
+      System.Console.Write("Name of contact: ");
+      string term = Console.ReadLine();
+
+      var contact = contacts.Find((contact) => contact.Name.ToLower().Contains(term));
+
+      if (contact != null) {
+        Notification.Info(contact.ToString());
+      } else {
+        Notification.Warning("Contact not found.");
+      }
 
     }
 
@@ -77,6 +93,9 @@ namespace ContactsAgenda
           RemoveContact();
           break;
         case 3:
+          SearchContact();
+          break;
+        case 4:
           ListContacts();
           break;
         default:

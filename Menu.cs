@@ -10,8 +10,9 @@ static class Menu
   {
     System.Console.WriteLine("01 - Add Contact");
     System.Console.WriteLine("02 - Remove Contact");
-    System.Console.WriteLine("03 - List All");
-    System.Console.WriteLine("04 - Exit");
+    System.Console.WriteLine("03 - Search Contact");
+    System.Console.WriteLine("04 - List Contacts");
+    System.Console.WriteLine("05 - Exit");
   }
 
   public static void AddContactMenu()
@@ -22,6 +23,11 @@ static class Menu
   public static void RemoveContactMenu()
   {
     Notification.Warning("Remove Contact");
+  }
+
+  public static void SearchContactMenu()
+  {
+    Notification.Warning("Search Contact");
   }
 
   public static void ListAllMenu()

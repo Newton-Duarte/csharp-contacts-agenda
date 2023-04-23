@@ -1,9 +1,16 @@
-﻿namespace ContactsAgenda
+namespace ContactsAgenda
 {
   class Program
   {
     static List<Contact> contacts = new List<Contact>();
+
     static void Main(string[] args)
+    {
+      Console.Clear();
+      ShowMenu();
+    }
+
+    private static void ShowMenu()
     {
       Menu.Show();
       int option = int.Parse(Console.ReadLine());

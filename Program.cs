@@ -1,4 +1,4 @@
-namespace ContactsAgenda
+﻿namespace ContactsAgenda
 {
   class Program
   {
@@ -31,7 +31,8 @@ namespace ContactsAgenda
 
       contacts.Add(newContact);
 
-      System.Console.WriteLine("Contact added successfully!");
+      Notification.Success("Contact added successfully!");
+      ShowMenu();
     }
 
     static void RemoveContact()
@@ -44,11 +45,11 @@ namespace ContactsAgenda
 
       if (contact != null)
       {
-        System.Console.WriteLine("Contact removed successfully!");
         contacts.Remove(contact);
+        Notification.Success("Contact removed successfully!");
       }
       else {
-        System.Console.WriteLine("Contact not found.");
+        Notification.Error("Contact not found.");
       }
 
       ShowMenu();
@@ -69,17 +70,24 @@ namespace ContactsAgenda
         Notification.Warning("Contact not found.");
       }
 
+      ShowMenu();
     }
 
     static void ListContacts()
     {
       Menu.ListAllMenu();
-      foreach(var contact in contacts)
-      {
-        System.Console.WriteLine(contact.ToString());
+
+      if (contacts.Count == 0) {
+        Notification.Info("Contacts List is empty.");
+      } else {
+        foreach(var contact in contacts)
+        {
+          Notification.Info(contact.ToString());
+        }
       }
 
-      Menu.Show();
+
+      ShowMenu();
     }
 
     static void HandleMenuOption(int option)
@@ -98,8 +106,12 @@ namespace ContactsAgenda
         case 4:
           ListContacts();
           break;
+        case 5:
+          Environment.Exit(0);
+          break;
         default:
           Menu.InvalidOptionMenu();
+          ShowMenu();
           break;
       }
     }

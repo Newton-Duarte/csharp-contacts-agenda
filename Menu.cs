@@ -16,22 +16,21 @@ static class Menu
 
   public static void AddContactMenu()
   {
-    System.Console.WriteLine("01 - Add Contact");
+    Notification.Warning("Add Contact");
   }
 
   public static void RemoveContactMenu()
   {
-    System.Console.WriteLine("02 - Remove Contact");
+    Notification.Warning("Remove Contact");
   }
 
   public static void ListAllMenu()
   {
-    System.Console.WriteLine("03 - List All");
+    Notification.Warning("Contacts List");
   }
 
   public static void InvalidOptionMenu()
   {
-    System.Console.WriteLine("Invalid option!");
-    Show();
+    Notification.Error("Invalid option!");
   }
 }
